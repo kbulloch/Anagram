@@ -88,18 +88,34 @@
             $this->assertEquals("ates: YES, eats: YES, bread: NO", $result);
         }
 
-        function testCapital()
+        function testCapitalInputWord()
         {
             //Arrange
-            $test_capital = new Anagram;
+            $test_capital_input_word = new Anagram;
             $input_word = "Seat";
             $input_bank = "east";
 
             //Act
-            $result = $test_capital->checkAnagram($input_word, $input_bank);
+            $result = $test_capital_input_word->checkAnagram($input_word, $input_bank);
 
             //Assert
             $this->assertEquals("east: YES", $result);
         }
+
+        function testCapitalBank()
+        {
+            //Arrange
+            $test_capital_bank = new Anagram;
+            $input_word = "east";
+            $input_bank = "SEAT";
+
+            //Act
+            $result = $test_capital_bank->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("seat: YES", $result);
+        }
+
+
     }
 ?>
