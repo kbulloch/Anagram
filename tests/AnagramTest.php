@@ -8,27 +8,27 @@
             //Arrange
             $test_null_input = new Anagram;
             $input_word = null;
-            $input_wordbank = null;
+            $input_bank = null;
 
             //Act
-            $result = $test_null_input->checkAnagram($input_word, $input_wordbank);
+            $result = $test_null_input->checkAnagram($input_word, $input_bank);
 
             //Assert
-            $this->assertEquals("please input a word and wordbank", $result);
+            $this->assertEquals("please input a word and bank", $result);
         }
 
-        function testNullWordbank()
+        function testNullBank()
         {
             //Arrange
-            $test_null_wordbank = new Anagram;
+            $test_null_bank = new Anagram;
             $input_word = "rat";
-            $input_wordbank = null;
+            $input_bank = null;
 
             //Act
-            $result = $test_null_wordbank->checkAnagram($input_word, $input_wordbank);
+            $result = $test_null_bank->checkAnagram($input_word, $input_bank);
 
             //Assert
-            $this->assertEquals("please input a word and wordbank", $result);
+            $this->assertEquals("please input a word and bank", $result);
         }
 
         function testNotAnagram()
@@ -36,13 +36,28 @@
             //Arragne
             $test_not_anagram = new Anagram;
             $input_word = "rat";
-            $input_wordbank = "beer";
+            $input_bank = "beer";
 
             //Act
-            $result = $test_not_anagram->checkAnagram($input_word, $input_wordbank);
+            $result = $test_not_anagram->checkAnagram($input_word, $input_bank);
 
             //Assert
             $this->assertEquals("beer: NO", $result);
+        }
+
+
+        function testYesAnagram()
+        {
+            //Arrange
+            $test_yes_anagram = new Anagram;
+            $input_word = "rat";
+            $input_bank = "tar";
+
+            //Act
+            $result = $test_yes_anagram->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("tar: YES", $result);
         }
     }
 ?>
