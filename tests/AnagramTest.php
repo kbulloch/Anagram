@@ -116,6 +116,20 @@
             $this->assertEquals("seat: YES", $result);
         }
 
+        function testInputWordInBank()
+        {
+            //Arrange
+            $test_input_word_in_bank = new Anagram;
+            $input_word = "east";
+            $input_bank = "east";
+
+            //Act
+            $result = $test_input_word_in_bank->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("east: INPUT", $result);
+        }
+
 
     }
 ?>
