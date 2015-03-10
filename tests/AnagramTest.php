@@ -35,11 +35,14 @@
         {
             //Arragne
             $test_not_anagram = new Anagram;
-            $input_word
+            $input_word = "rat";
+            $input_wordbank = "beer";
 
             //Act
+            $result = $test_not_anagram->checkAnagram($input_word, $input_wordbank);
 
             //Assert
+            $this->assertEquals("beer: NO", $result);
         }
     }
 ?>
