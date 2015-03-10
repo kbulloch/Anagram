@@ -3,6 +3,14 @@
 
     class AnagramTest extends PHPUnit_Framework_TestCase
     {
+        function nullInputTest()
+        {
+            //Arrange
+            
+            //Act
 
+            //Assert
+
+        }
     }
 ?>
