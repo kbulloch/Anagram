@@ -130,6 +130,20 @@
             $this->assertEquals("east: INPUT", $result);
         }
 
+        function testPartialMatch()
+        {
+            //Arrange
+            $test_partial_match = new Anagram;
+            $input_word = "east";
+            $input_bank = "eat";
+
+            //Act
+            $result = $test_partial_match->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("eat: YES", $result);
+
+        }
 
     }
 ?>

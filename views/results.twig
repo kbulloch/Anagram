@@ -1,0 +1,24 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>Anagram Results</title>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Results:</h1>
+        <ul>
+        {% for word in anagram_results %}
+            <li>{{ word }}</li>
+        {% endfor %}
+        </ul>
+
+        <h3>Your input word:</h3>
+        <p>{{ key }}</p>
+
+        <h3>Your word bank:</h3>
+        <p>{{ bank }}</p>
+
+    </div>
+</body>
+</html>

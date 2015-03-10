@@ -4,6 +4,8 @@
 
     $app = new Silex\Application();
 
+    $app['debug']=true;
+
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
@@ -15,8 +17,7 @@
     $app->get("/results", function() use ($app) {
         $anagram = new Anagram;
         $use_words = $anagram->checkAnagram($_GET['user_word'], $_GET['user_bank']);
-        //change this variable later
-        return $app['twig']->render('results.twig', array('result' => $use_words));
+        return $app['twig']->render('results.twig', array('anagram_results' => $use_words, 'key' => $_GET['user_word'], 'bank' => $_GET['user_bank']));
     });
 
     return $app;

@@ -3,8 +3,12 @@
     {
         function checkAnagram($word, $bank)
         {
+            //create blank array for output
+            $output_words = array();
+
             if ($word == null || $bank == null) {
-                return "please input a word and bank";
+                array_push($output_words, "please input a word and bank");
+                return $output_words;
             }
 
             //string to lower
@@ -14,11 +18,12 @@
             $word_split = str_split($lower_word);
             //sort input word letters
             sort($word_split);
-            //create blank array for output
-            $output_words = array();
+
+            //trimming whitespace around bank
+            $trimmed_bank = trim($bank);
 
             //explode bank of words
-            $exploded_bank = explode(" ", $bank);
+            $exploded_bank = explode(" ", $trimmed_bank);
 
             //step thru each word
             foreach ($exploded_bank as $current_word) {
@@ -44,9 +49,9 @@
                  array_push($output_words, $lower_current_word);
             }
 
-            $imploded_output = implode($output_words, ", ");
+            // $imploded_output = implode($output_words, ", ");
 
-            return $imploded_output;
+            return $output_words;
 
         }
     }
