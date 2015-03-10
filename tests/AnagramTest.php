@@ -59,5 +59,47 @@
             //Assert
             $this->assertEquals("tar: YES", $result);
         }
+
+        function testMultipleWords()
+        {
+            //Arrange
+            $test_multiple_words = new Anagram;
+            $input_word = "rat";
+            $input_bank = "tar bat";
+
+            //Act
+            $result = $test_multiple_words->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("tar: YES, bat: NO", $result);
+        }
+
+        function testMultipleConfirms()
+        {
+            //Arrange
+            $test_multiple_confirms = new Anagram;
+            $input_word = "east";
+            $input_bank = "ates eats bread";
+
+            //Act
+            $result = $test_multiple_confirms->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("ates: YES, eats: YES, bread: NO", $result);
+        }
+
+        function testCapital()
+        {
+            //Arrange
+            $test_capital = new Anagram;
+            $input_word = "Seat";
+            $input_bank = "east";
+
+            //Act
+            $result = $test_capital->checkAnagram($input_word, $input_bank);
+
+            //Assert
+            $this->assertEquals("east: YES", $result);
+        }
     }
 ?>
