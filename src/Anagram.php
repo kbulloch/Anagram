@@ -31,7 +31,10 @@
                 sort($current_word_split);
 
                  //compare current word from bank and main input word
-                 if ($word_split == $current_word_split) {
+                 if ($lower_word == $lower_current_word) {
+                     $lower_current_word .= ": INPUT";
+                 }
+                 elseif ($word_split == $current_word_split) {
                      $lower_current_word .= ": YES";
                  }
                  else {

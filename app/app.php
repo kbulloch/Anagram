@@ -12,11 +12,11 @@
         return $app['twig']->render('form.twig');
     });
 
-    $app->get("/anagram", function() use ($app) {
+    $app->get("/results", function() use ($app) {
         $anagram = new Anagram;
-        $use_words = $anagram->checkAnagram($_GET['user_word'], $_GET['user_wordbank']);
+        $use_words = $anagram->checkAnagram($_GET['user_word'], $_GET['user_bank']);
         //change this variable later
-        return $app['twig']->render('anagram_output.twig', array('result' => $use_words));
+        return $app['twig']->render('results.twig', array('result' => $use_words));
     });
 
     return $app;
