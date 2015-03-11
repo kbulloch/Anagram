@@ -35,6 +35,17 @@
                 //sort letters
                 sort($current_word_split);
 
+                //partial match algorithm
+                //THIS DOES NOT EVEN DO ANYTHING YET ------
+                $number_of_letters = count($word_split);
+                for ($i = 0; $i < $number_of_letters; ++$i) {
+                    if ($word_split[$i] != $current_word_split[$i]) {
+                        unset($word_split[$i]);
+                        --$i;
+                    }
+                }
+                //UNTIL HERE -------------------
+
                  //compare current word from bank and main input word
                  if ($lower_word == $lower_current_word) {
                      $lower_current_word .= ": INPUT";
@@ -48,6 +59,8 @@
                  //add current word to output array
                  array_push($output_words, $lower_current_word);
             }
+
+
 
             // $imploded_output = implode($output_words, ", ");
 
